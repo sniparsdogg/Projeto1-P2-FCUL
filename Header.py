@@ -10,10 +10,10 @@ from Date import Date
 class Header:
     def __init__(self, fileName):
         """
-        Reads the header from a given file and returns a list representing the header's main information.
+        Reads the header from a given file and fills the object's variables
 
         Requires: A string representing the file name.
-        Ensures: A list representing the header's main information (time, date and company).
+        Ensures: An object filled with the header's relevant information.
         """
 
         file = open(fileName, 'r')

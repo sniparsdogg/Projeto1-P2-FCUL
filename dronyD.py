@@ -5,7 +5,6 @@
 
 
 import sys
-from Drone import Drone
 from DroneList import DroneList
 from ParcelList import ParcelList
 from Timetable import Timetable
@@ -26,17 +25,17 @@ def allocate(fileNameDrones, fileNameParcels):
     and naming convention indicated in the project sheet.
     """
 
-    fileNameInfo = FileNameInfo(fileNameDrones)
+    fileNameInfo = FileNameInfo(fileNameDrones)  # first we extract the relevant information from the drones' filename
 
     droneList = DroneList()
     droneList.readFile(fileNameDrones)  # this is the drones collection with info from the drone file
     parcelsList = ParcelList()
     parcelsList.readFile(fileNameParcels)  # this is the parcels collection with info from the parcel file
-    header = Header(fileNameDrones) # this will be the header info
+    header = Header(fileNameDrones)  # this will be the header info
     droneAssignment = Timetable()  # this will be the timetable
 
     for parcel in parcelsList.items():
-        # assign the available drones for each delivery
+        # here we're going to assign the available drones for each delivery
         availableDroneList = DroneList()  # a new drone collection is created for each parcel in order to know
         # what drones can deliver this parcel
         for drone in droneList.items():
@@ -67,12 +66,12 @@ def allocate(fileNameDrones, fileNameParcels):
             droneAssignment.add(newAssignment)
 
             # now we need to update the mileage and range on the drone assigned
+            # in order to achieve that, we add the total distance of the trip in kilometers to the drone's mileage
+            # and subtract the same value to the drone's battery life
 
             kilometer = 1000
             returnTrip = 2
 
-            # we add the total distance of the trip in kilometers to the drone's mileage
-            # and subtract the same value to the drone's battery life
             newMileage = delivery.getMileage() + (parcel.getDistance() * returnTrip) / kilometer
             newRange = delivery.getBatteryLife() - (parcel.getDistance() * returnTrip) / kilometer
 
@@ -125,8 +124,8 @@ try:
         and parcelsFileName.getTime() == headerParcels.getHours(), \
         "Input error: name and header inconsistent in file " + inputFileName2 + "."
 
-    # the program runs one more assertion test to make sure the headers from the drones and parcels files are consistent
-    # with each other
+    # the program runs one more assertion test to make sure the headers from the drones and parcels files
+    # are consistent with each other
     # if not, it throws an input error
     assert headerDrones.getHours() == headerParcels.getHours() \
         and headerDrones.getDate() == headerDrones.getDate() \
@@ -139,3 +138,5 @@ try:
 # if an error is thrown, the program will print the message error to the screen
 except AssertionError as error:
     print(error)
+
+# and the ranger's aim was deadly with the big iron on his hip

@@ -64,12 +64,18 @@ class Drone:
         self.setBatteryLife(self.getBatteryLife() - distance)
 
     def checkpoint(self, parcel):
+        """
+        Checks if this drone can deliver the given parcel.
+
+        Requires: parcel is a Parcel-type object.
+        Ensures: boolean that represents if this drone can or not deliver the parcel.
+        """
         parcelLocation = parcel.getLocation()
         droneLocation = self.getLocation()
-        returnTrip = 2
-        kilometer = 1000
         if parcelLocation == droneLocation:  # the drone must be located in the \
             # same zone as the request
+            returnTrip = 2
+            kilometer = 1000
             totalDistance = parcel.getDistance() * returnTrip
             droneRange = self.getBatteryLife() * kilometer
             if totalDistance <= droneRange:  # the drone must have enough battery life to \
@@ -82,6 +88,6 @@ class Drone:
                     droneMaxDistance = self.getMaxDistance()
                     if deliveryDistance <= droneMaxDistance:  # the distance of the request \
                         # can't be bigger than the drone's max distance
-                        return True  # if it meets all these requirements, the drone is \
-                        # assigned to its respective parcel
-        return False
+                        return True  # if it meets all these requirements, this drone can \
+                        # assigned to the given parcel
+        return False  # this drone can't be assigned to the given parcel

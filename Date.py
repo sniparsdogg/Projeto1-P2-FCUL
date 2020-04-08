@@ -40,14 +40,18 @@ class Date:
         return self._year
 
     def writeHeader(self):
+        """
+        Returns a string representing the date's correct format for the header.
+        """
         return str(self.getDay()) + "-" + str(self.getMonth()) + "-" + str(self.getYear())
 
     def finalDate(self, time, minutes):
         """
         Returns the final date/time for the timetable.
 
-        Requires: date, time and minutes are strings, each representing the date, time and minutes to sum respectively.
-        Ensures: The date and time at which the drone will start the parcel delivery.
+        Requires: time is a Time-type object, representing the time assigned to deliver the parcel.
+        minutes is an int, representing the minutes to sum.
+        Ensures: The date at which the drone will start the parcel delivery / is ready for the next delivery.
         """
         deliveryYear = self.getYear()
         deliveryMonth = self.getMonth()
@@ -66,28 +70,3 @@ class Date:
 
         finalDate = Date(deliveryDay, deliveryMonth, deliveryYear)
         return finalDate
-
-    # def finalDateDrone(self, time, minutes):
-    #     """
-    #     Returns the final date/time for the updated drone table.
-    #
-    #     Requires: date, time and minutes are strings, each representing the date, time and minutes to sum respectively.
-    #     Ensures: The date and time at which the drone will be available for another delivery.
-    #     """
-    #     deliveryYear = self.getYear()
-    #     deliveryMonth = self.getMonth()
-    #     deliveryDay = self.getDay()
-    #
-    #     if time.sumMinutes(minutes).getHours() >= 20 and time.sumMinutes(minutes).getMinutes() > 0:
-    #         deliveryDay += 1
-    #
-    #     if deliveryDay > 30:
-    #         deliveryDay = 1
-    #         deliveryMonth += 1
-    #
-    #     if deliveryMonth > 12:
-    #         deliveryMonth = 1
-    #         deliveryYear += 1
-    #
-    #     finalDate = Date(deliveryDay, deliveryMonth, deliveryYear)
-    #     return finalDate

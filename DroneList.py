@@ -18,10 +18,10 @@ class DroneList:
 
     def readFile(self, fileName):
         """
-        Reads the drones' file and assigns each drone to a sub-list, returning a list of all the drones in the file.
+        Reads the drones' file and assigns each drone to this collection.
 
-        Requires: A string representing the file name
-        Ensures: A list representing the drones.
+        Requires: A string representing the file name.
+        Ensures: A collection filled with the drones on the file.
         """
 
         file = open(fileName, 'r')
@@ -47,6 +47,11 @@ class DroneList:
             yield elem
 
     def sort(self):
+        """
+        Sorts the colllection as desired for the drone file.
+
+        Ensures: An ordered drone collection.
+        """
         self._drones = sorted(self._drones, key=lambda x: (x.getDate().getDay(),
                                                            x.getTime().getHours(),
                                                            x.getTime().getMinutes(),
@@ -59,8 +64,6 @@ class DroneList:
     def length(self):
         return len(self._drones)
 
-    # TODO: find a way to append drones
-
     def add(self, drone):
         self._drones.append(drone)
 
@@ -70,6 +73,12 @@ class DroneList:
                 drone = newDrone
 
     def bestDrone(self):
+        """
+        Sorts the collection by date/time, battery life, mileage and lexicographically.
+        Returns the best drone available in this collection
+
+        Ensures: An object representing the best drone available.
+        """
         self._drones = sorted(self._drones, key=lambda x: (x.getDate().getDay(),
                                                            x.getTime().getHours(),
                                                            x.getTime().getMinutes(),
@@ -82,8 +91,8 @@ class DroneList:
         """
         Creates a file representing the updated drone list.
 
-        Requires: header and droneList are lists, each representing the header's information and the updated drone list,
-        respectively. date and hour are strings, each representing the date and time to use on the file, respectively.
+        Requires: header is a Header-type object, representing the header's information.
+        filenameinfo is a FileNameInfo-type object, representing the information retrieved from the drones' file name.
         Ensures: An output file representing the updated drone list.
         """
         # TODO: https://stackoverflow.com/a/23199263

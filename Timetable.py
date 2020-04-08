@@ -40,8 +40,8 @@ class Timetable:
         """
         Creates a file representing the timetable.
 
-        Requires: header and timetable are lists, each representing the header's information and the parcels assigned,
-        respectively. date and hour are strings, each representing the date and time to use on the file, respectively.
+        Requires: header is a Header-type object, representing the header's information.
+        filenameinfo is a FileNameInfo-type object, representing the information retrieved from the drones' file name.
         Ensures: An output file representing the timetable.
         """
         fileNameDate = filenameinfo.getDate()

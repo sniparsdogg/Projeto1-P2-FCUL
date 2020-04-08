@@ -63,10 +63,10 @@ class Time:
 
     def finalTimeCustomer(self, minutes):
         """
-        Returns the final date/time for the timetable.
+        Returns the final time for the timetable.
 
-        Requires: date, time and minutes are strings, each representing the date, time and minutes to sum respectively.
-        Ensures: The date and time at which the drone will start the parcel delivery.
+        Requires: minutes is an int number. representing the minutes to sum.
+        Ensures: The time at which the drone will start the parcel delivery.
         """
 
         deliveryHours = self.getHours()
@@ -81,10 +81,10 @@ class Time:
 
     def finalTimeDrone(self, minutes):
         """
-        Returns the final date/time for the updated drone table.
+        Returns the final time for the updated drone table.
 
-        Requires: date, time and minutes are strings, each representing the date, time and minutes to sum respectively.
-        Ensures: The date and time at which the drone will be available for another delivery.
+        Requires: minutes is an int number, representing the minutes to sum.
+        Ensures: The time at which the drone will be available for another delivery.
         """
         deliveryHours = self.sumMinutes(minutes).getHours()
         deliveryMinutes = self.sumMinutes(minutes).getMinutes()
