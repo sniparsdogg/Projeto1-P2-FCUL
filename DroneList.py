@@ -59,9 +59,20 @@ class DroneList:
                                                            x.getName()))
 
     def append(self, drone):
+        """
+        Appends a drone to the drone list.
+
+        Requires: drone is a Drone-type object that represents the drone to add to the collection.
+        Ensures: Drone added to the drone list.
+        """
         self._drones.append(drone)
 
     def length(self):
+        """
+        How many drones are in the collection.
+
+        Returns: The size of the drone list.
+        """
         return len(self._drones)
 
     def add(self, drone):
@@ -75,7 +86,7 @@ class DroneList:
     def bestDrone(self):
         """
         Sorts the collection by date/time, battery life, mileage and lexicographically.
-        Returns the best drone available in this collection
+        Returns the best drone available in this collection.
 
         Ensures: An object representing the best drone available.
         """

@@ -30,10 +30,25 @@ class Header:
         file.close()
 
     def getHours(self):
+        """
+        The time obtained from the header.
+
+        Ensures: A time-type object representing the time obtained from the header.
+        """
         return self._hours
 
     def getDate(self):
+        """
+        The date obtained from the header.
+
+        Ensures: A date-type object representing the date obtained from the header.
+        """
         return self._date
 
     def getCompany(self):
+        """
+        The company obtained from the header.
+
+        Ensures: A string representing the company obtained from the header.
+        """
         return self._company

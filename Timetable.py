@@ -9,13 +9,29 @@ class Timetable:
         self._table = []
 
     def items(self):
+        """
+        Supports iteration over the current instance
+        """
         for item in self._table:
             yield item
 
     def add(self, assignment):
+        """
+        Adds the given assignment to the timetable collection.
+
+        Requires: assignment is an Assignment-type object that represents the assignment to add to the timetable list.
+        Ensures: Assignment added to the timetable collection.
+        """
         self._table.append(assignment)
 
     def sort(self):
+        """
+        Sorts the timetable collection as requested in the project sheet.
+        First the cancelled parcels, ordered lexicographically ascending.
+        Then the assigned parcels, ordered by time and lexicographically, both ascending.
+
+        Ensures: An ordered timetable collection that follows the requirements as requested in the project sheet.
+        """
         ParcelsAssigned = []
         ParcelsCancelled = []
         finalTimetable = []

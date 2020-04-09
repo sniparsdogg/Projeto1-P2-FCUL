@@ -47,4 +47,10 @@ class ParcelList:
             yield elem
 
     def add(self, parcel):
+        """
+        Adds the given parcel to the parcel list.
+
+        Requires: parcel is a Parcel-type object that represents the parcel to add to the parcel collection.
+        Ensures: Added parcel to the parcel list.
+        """
         self._parcels.append(parcel)

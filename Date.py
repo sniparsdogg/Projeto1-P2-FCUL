@@ -31,12 +31,24 @@ class Date:
         return False
 
     def getDay(self):
+        """
+        The day component of the date.
+        Returns: An int representing the day.
+        """
         return self._day
 
     def getMonth(self):
+        """
+        The month component of the date.
+        Returns: An int representing the month.
+        """
         return self._month
 
     def getYear(self):
+        """
+        The year component of the date.
+        Returns: An int representing the year.
+        """
         return self._year
 
     def writeHeader(self):

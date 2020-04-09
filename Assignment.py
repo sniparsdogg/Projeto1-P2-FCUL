@@ -15,13 +15,29 @@ class Assignment:
         return str(self._date) + ", " + str(self._time) + ", " + str(self._parcel) + ", " + str(self._drone)
 
     def getDate(self):
+        """
+        The assigned date.
+        Returns: A date-object representing the assigned date.
+        """
         return self._date
 
     def getTime(self):
+        """
+        The assigned time.
+        Returns: A time-object representing the assigned time.
+        """
         return self._time
 
     def getParcel(self):
+        """
+        The assigned parcel.
+        Returns: A string representing the parcel.
+        """
         return self._parcel
 
     def getDrone(self):
+        """
+        The assigned drone.
+        Returns: A string representing the assigned drone.
+        """
         return self._drone

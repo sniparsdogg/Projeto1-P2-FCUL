@@ -22,46 +22,96 @@ class Drone:
                + ", " + str(self._time)
 
     def getName(self):
+        """
+        The name of the drone.
+        Returns: A string representing the name of the drone.
+        """
         return self._name
 
     def getLocation(self):
+        """
+        The location of the drone.
+        Returns: A string representing the location of the drone.
+        """
         return self._location
 
     def getMaxWeight(self):
+        """
+        The max weight that the drone can carry.
+        Returns: An int representing the max weight that the drone can carry.
+        """
         return self._maxWeight
 
     def getMaxDistance(self):
+        """
+        The max distance that the drone can travel.
+        Returns: An int representing the max distance that the drone can travel.
+        """
         return self._maxDistance
 
     def getMileage(self):
+        """
+        The total distance that the drone already travelled.
+        Returns: A float representing the total distance that the drone already travelled.
+        """
         return self._mileage
 
     def getBatteryLife(self):
+        """
+        The battery life that's left on the drone.
+        Returns: A float representing the remaining battery life of this drone.
+        """
         return self._batteryLife
 
     def getDate(self):
+        """
+        The date at which the drone is ready to fly.
+        Returns: A date-type object representing the date at which the drone is ready to fly.
+        """
         return self._date
 
     def getTime(self):
+        """
+        The time at which the drone is ready to fly.
+        Returns: A time-type object representing the time at which the drone is ready to fly.
+        """
         return self._time
 
     def setTime(self, time):
+        """
+        Setter of the drone's time.
+
+        Requires: time is a Time-type object that represents the time to update.
+        Ensures: Updated time on the drone.
+        """
         self._time = time
 
     def setDate(self, date):
+        """
+        Setter of the drone's date.
+
+        Requires: date is a Date-type object that represents the date to update.
+        Ensures: Updated date on the drone.
+        """
         self._date = date
 
     def setMileage(self, mileage):
+        """
+        Setter of the drone's mileage.
+
+        Requires: mileage is a float number that represents the mileage to update.
+        Ensures: Updated mileage on the drone.
+        """
         self._mileage = mileage
 
     def setBatteryLife(self, batteryLife):
+        """
+        Setter of the drone's battery life.
+
+        Requires: batteryLife is a float number that represents the battery life to update.
+        Ensures: Updated battery life on the drone.
+        """
         self._batteryLife = batteryLife
-
-    def updateMileage(self, distance):
-        self.setMileage(self.getMileage() + distance)
-
-    def updateBatteryLife(self, distance):
-        self.setBatteryLife(self.getBatteryLife() - distance)
 
     def checkpoint(self, parcel):
         """

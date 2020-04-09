@@ -18,7 +18,17 @@ class FileNameInfo:
             self._time = Time(int(fileName[7:9]), int(fileName[10:12]))
 
     def getDate(self):
+        """
+        The date on the filename.
+
+        Ensures: The date on the filename.
+        """
         return self._date
 
     def getTime(self):
+        """
+        The time on the filename.
+
+        Ensures: The time on the filename.
+        """
         return self._time

@@ -25,15 +25,35 @@ class Time:
         return False
 
     def getHours(self):
+        """
+        The hours component of the time.
+        Ensures: an int number representing the hours component of the time.
+        """
         return self._hours
 
     def getMinutes(self):
+        """
+        The minutes component of the time.
+        Ensures: an int number representing the minutes component of the time.
+        """
         return self._minutes
 
     def setHours(self, hours):
+        """
+        Setter of the hours component of the time.
+
+        Requires: hours is an int number representing the hours to set in the time.
+        Ensures: Hours set in the time.
+        """
         self._hours = hours
 
     def setMinutes(self, minutes):
+        """
+        Setter of the minutes component of the time.
+
+        Requires: minutes is an int number representing the minutes to set in the time.
+        Ensures: Minutes set in the time.
+        """
         self._minutes = minutes
 
     def sumMinutes(self, minutes):
